@@ -67,15 +67,52 @@ bool evaluateIf(String exp) {
 //         }
 }
 
-evaluateMathExpression(List<String> expression) {
+dynamic evaluateMathExpression(List<String> expression) {
   var result = 0.00;
   String operator;
+  print("Expression - $expression");
+
+  
+
+
   if (expression.contains('(')) {
     print('Expression contains (');
     result = evaluateBracketExpression(expression);
   } else {
     print("Inside else");
+    for (var i = 0; i < expression.length; i++) {
+      print("Expression of i - ${variableValues[expression[i]]}");
+      var expressionValue =
+          variableValues[expression[i]] == null && expression[i].length > 1
+              ? expression[i]
+              : variableValues[expression[i]] ?? 1.0;
+
+      print("Expression value - $expressionValue");
+
+      switch (expression[i]) {
+        case '+':
+          operator = '+';
+          break;
+        case '-':
+          operator = '-';
+          break;
+        case '*':
+          operator = '*';
+          break;
+        case '/':
+          operator = '/';
+          break;
+        default:
+          print("Default case");
+          if (operator == null) {
+            result = double.parse(expressionValue) * 1.0;
+          } else {
+            print("else default case");
+          }
+      }
+    }
   }
+  return result;
 }
 
 evaluateBracketExpression(List<String> expression) {
