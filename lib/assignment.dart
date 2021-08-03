@@ -24,5 +24,5 @@ void main() {
   List<Map<String, dynamic>> result =
       _compute.computeValues(inputJsonAttribute, computeJsonAttribute);
 
-  print("Output -  $result");
+  print(result);
 }

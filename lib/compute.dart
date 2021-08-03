@@ -8,8 +8,8 @@ class Compute {
 // to calculate values for the particular expression which lies inside bracket by calling evaluateMathExpression as and when needed.
   double evaluateBracketExpression(List<String> expressionValue) {
     print('From Bracket Math Exp: Input = $expressionValue');
-    int startIndex = 0;
-    int endIndex = 10000;
+    int startIndex;
+    int endIndex;
     double subExpressionValue;
     for (var i = 0; i < expressionValue.length; i++) {
       if (expressionValue[i] == '(') {
@@ -126,7 +126,7 @@ class Compute {
         result = variableValues[operands[0]] != value;
         break;
       default:
-        result = true;
+        result = false;
     }
     print('From Evaluate Log Exp result = $result');
     return result;
@@ -163,6 +163,7 @@ class Compute {
     } else {
       result = evaluateMathExpression(expression.trim().split(' '));
     }
+    print("evaluateExp - $result");
     return result;
   }
 
