@@ -7,7 +7,6 @@ class Compute {
 // and evaluate if the list has bracket ( , ) or not and accordingly at the start and end index
 // to calculate values for the particular expression which lies inside bracket by calling evaluateMathExpression as and when needed.
   double evaluateBracketExpression(List<String> expressionValue) {
-    print('From Bracket Math Exp: Input = $expressionValue');
     int startIndex;
     int endIndex;
     double subExpressionValue;
@@ -21,11 +20,8 @@ class Compute {
     }
     subExpressionValue = evaluateMathExpression(
         expressionValue.getRange(startIndex + 1, endIndex).toList());
-    print(
-        'From Evaluate Bracket Exp: subExpValue or result = $subExpressionValue');
     expressionValue.replaceRange(
         startIndex, endIndex + 1, [subExpressionValue.toString()]);
-    print('From Evaluate Bracket Exp: subExpList =  $expressionValue');
     return evaluateMathExpression(expressionValue);
   }
 
@@ -34,7 +30,6 @@ class Compute {
 // and evaluate all the possible mathematical operator conditions(+ , - , * , / ),
 // and calculates the value based on the given operator and returns the calculated value of it.
   double evaluateMathExpression(List<String> expressionValue) {
-    print('From Evaluate Math Exp: Input = $expressionValue');
     String operator;
     var result = 0.0;
     if (expressionValue.contains('(')) {
@@ -99,7 +94,7 @@ class Compute {
     List<String> operands;
     bool result;
     operands = expression.split(' ');
-    print('From evaluateLogExp $operands');
+
     operands[2] = operands[2].substring(1, operands[2].length - 1).trim();
     if (variableTypes[operands[0]] == 'number') {
       value = double.parse(operands[2]);
@@ -128,7 +123,7 @@ class Compute {
       default:
         result = false;
     }
-    print('From Evaluate Log Exp result = $result');
+
     return result;
   }
 
@@ -163,10 +158,10 @@ class Compute {
     } else {
       result = evaluateMathExpression(expression.trim().split(' '));
     }
-    print("evaluateExp - $result");
     return result;
   }
 
+// computeValues function store the inputJsonAttribute, computeJsonAttribute inside a map
   List<Map<String, dynamic>> computeValues(
       List<Map<String, dynamic>> inputJsonAttribute,
       List<Map<String, dynamic>> computeJsonAttribute) {
