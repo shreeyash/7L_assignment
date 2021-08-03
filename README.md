@@ -1,6 +1,7 @@
 # sevenlake_assignment
 
-Run code - flutter run, main.dart
+Run code - flutter run, main.dart.
+
 Run unit tests - flutter test, compute_test.dart 
 
 
